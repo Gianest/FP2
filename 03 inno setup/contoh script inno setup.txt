@@ -1,0 +1,40 @@
+[Setup]
+AppName=Sistem Informasi Perpustakaan
+AppVerName=Sistem Informasi Perpustakaan Versi 1.0.0
+AppPublisher=Kamarudin
+AppCopyright=Copyright © 2019. Kamarudin
+DefaultDirName={pf}\SI Perpustakaan
+DefaultGroupName=SI Perpustakaan
+OutputDir=release
+OutputBaseFilename=SIPerpustakaan-v1.0.0-Setup
+DisableProgramGroupPage=yes
+CreateUninstallRegKey=yes
+Uninstallable=yes
+UninstallFilesDir={app}\uninst
+UninstallDisplayIcon={app}\PerpustakaanAppMVC.exe,0
+UninstallDisplayName=Sistem Informasi Perpustakaan
+
+;file icon ada di folder inno setup\icon
+SetupIconFile=Setup.ico
+
+;file WizardImage ada di folder inno setup\WizardImages
+WizardImageFile=SetupModern21.bmp
+
+;file small WizardImage ada di folder inno setup\WizardImages\Small
+WizardSmallImageFile=SetupModernSmall21.bmp
+
+[Tasks]
+Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked
+
+[Files]
+;icon aplikasi
+;file icon ada di folder inno setup\icon
+Source: icon_aplikasi.ico; DestDir: {app}; Flags: ignoreversion
+
+Source: PerpustakaanAppMVC.exe; DestDir: {app}; Flags: ignoreversion
+Source: PerpustakaanAppMVC.exe.config; DestDir: {app}; Flags: ignoreversion
+Source: Database\DbPerpustakaan.mdb; DestDir: {app}\Database; Flags: ignoreversion
+
+[Icons]
+Name: {group}\Sistem Informasi Perpustakaan; Filename: {app}\PerpustakaanAppMVC.exe; WorkingDir: {app}; IconFilename: {app}\icon_aplikasi.ico
+Name: {userdesktop}\Sistem Informasi Perpustakaan; Filename: {app}\PerpustakaanAppMVC.exe; WorkingDir: {app}; IconFilename: {app}\icon_aplikasi.ico; Tasks: desktopicon
